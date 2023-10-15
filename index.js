@@ -8,9 +8,9 @@ let rounds = prompt("How much rounds you wanna play>");
 parseInt(rounds);
 
 let loop = 0;
-for (i = 0; i < rounds; i++) {
+while (loop < rounds) {
   let computerRawInput = Math.floor(Math.random() * 3);
-  let userRawInput = prompt("-----Enter-----\nst = stone\npa = paper\nsc = scisser");
+  let userRawInput = prompt(`--------------------\n--Enter--\nRound ${loop + 1}\nst = stone\npa = paper\nsc = scisser\n>`);
 
   if (computerRawInput === 0) {
     computerChoice.push(choice[0]);
@@ -32,21 +32,21 @@ for (i = 0; i < rounds; i++) {
 
   function playGame() {
     if (userChoice[loop] === computerChoice[loop]) {
-      return `Computers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nThe game was a tie`;
+      return `--------------------\nComputers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nThe game was a tie`;
     } else if (userChoice[loop] === choice[0] && computerChoice[loop] === choice[2]) {
-      return `Computers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nYou won`
+      return `--------------------\nComputers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nYou won`
     } else if (userChoice[loop] === choice[1] && computerChoice[loop] === choice[0]) {
-      return `Computers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nYou won`
+      return `--------------------\nComputers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nYou won`
     } else if (userChoice[loop] === choice[2] && computerChoice[loop] === choice[1]) {
-      return `Computers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nYou won`
-    }else if(userChoice[loop] === null){
-      return `Computers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nAn Error ocured`
-    }else {
-      return `Computers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nUnfortunatly You Lose`
+      return `--------------------\nComputers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nYou won`
+    } else {
+      return `--------------------\nComputers Choice was: ${computerChoice[loop]}\nYour Choice was: ${userChoice[loop]}\nUnfortunatly You Lose`
     };
   };
+  if (userChoice[loop] === null) {
+    console.log(`--------------------\nAn error occurred `)
+    break;
+  }
   console.log(playGame())
   loop++
-}
-console.log(userChoice);
-console.log(computerChoice);
+};
